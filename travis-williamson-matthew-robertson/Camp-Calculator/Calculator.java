@@ -9,7 +9,7 @@ public class Calculator {
 		// constructors
 		public Calculator () {
 		}
-		
+		/*
 		// getters and setters
 		
 		public double getInput1() {
@@ -27,7 +27,7 @@ public class Calculator {
 		public void setInput2(double input2) {
 			this.input2 = input2;
 		}
-		
+		*/
 		
 		// methods
 		public double add (double input1, double input2) {
