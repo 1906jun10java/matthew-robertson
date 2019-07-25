@@ -16,6 +16,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	
 	public static ConnFactory cf = ConnFactory.getInstance();
 	
+	@Override
 	public void createEmployee(String firstName, String lastName, String userName, String passWord, String email, int managerClass) throws SQLException {
 		Connection conn = cf.getConnection("database.properties");
 		String sql = "INSERT INTO EMPLOYEES VALUES(EMPSEQ.NEXTVAL,?,?,?,?,?,?)";
@@ -27,6 +28,20 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		ps.setString(5, email);
 		ps.setInt(6, managerClass);
 		ps.executeUpdate();
+	}
+	
+	@Override
+	public Employee getEmpById(int id) throws SQLException {
+		Connection conn = cf.getConnection("database.properties");
+		String sql = "SELECT * FROM EMPLOYEES WHERE EMPLOYEES_ID = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, id);
+		ResultSet rs = ps.executeQuery();
+		Employee e = null;
+		while(rs.next()) {
+			e = new Employee(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));
+		}
+		return e;
 	}
 
 	@Override

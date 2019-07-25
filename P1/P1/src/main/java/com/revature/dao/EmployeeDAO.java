@@ -12,4 +12,6 @@ public interface EmployeeDAO {
 	
 	public abstract ArrayList<Employee> readEmpList() 
 		throws SQLException;
+
+	Employee getEmpById(int id) throws SQLException;
 }
