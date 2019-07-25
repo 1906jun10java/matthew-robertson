@@ -35,7 +35,7 @@ function populateERRTable(xhr) {
 //let id = null;
 window.onload = function() {
 	// dUser();
-	document.getElementById('viewR_Requests').addEventListener('click', getRequests);
+	document.getElementById('viewRRequests').addEventListener('click', getRequests);
 }
 
 //const URL = "http://localhost:8084/P1/viewR_Requests";
@@ -91,7 +91,7 @@ function rTableGen(data) {
 	}
 
 	// replace the empty div with a table
-	let newTable = document.getElementById("R_Request");
+	let newTable = document.getElementById("R_Requests");
 	newTable.innerHTML = "";
 	newTable.appendChild(table);
 }
