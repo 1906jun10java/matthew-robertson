@@ -18,16 +18,17 @@ public class R_RequestDAOImpl implements R_RequestDAO {
 	public static ConnFactory cf = ConnFactory.getInstance();
 
 	@Override
-	public boolean createR_Request(int employeeId, String rDate, String rDescription, double rCost, String status, int managerClass) throws SQLException {
+	public boolean createR_Request(int employeeId, String rDate, String rDescription, double rCost, String status, int approvedBy, int managerClass) throws SQLException {
 		Connection conn = cf.getConnection("database.properties");
-		String sql = "INSERT INTO R_REQUEST VALUES(REQSEQ.NEXTVAL,?,?,?,?,?,?)";
+		String sql = "INSERT INTO R_REQUEST VALUES(REQSEQ.NEXTVAL,?,?,?,?,?,?,?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, employeeId);
 		ps.setString(2, rDate);
 		ps.setString(3, rDescription);
 		ps.setDouble(4, rCost);
 		ps.setString(5, status);
-		ps.setInt(6, managerClass);
+		ps.setInt(6, approvedBy);
+		ps.setInt(7, managerClass);
 		ps.executeUpdate();
 		return true;
 	}
@@ -42,7 +43,7 @@ public class R_RequestDAOImpl implements R_RequestDAO {
 		ResultSet rs = ps.executeQuery();
 		R_Request r = null;
 		while(rs.next()) {
-			r = new R_Request(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6), rs.getInt(7));
+			r = new R_Request(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6), rs.getInt(7), rs.getInt(8));
 			reqList.add(r);
 		}
 		return reqList;
@@ -91,7 +92,7 @@ public class R_RequestDAOImpl implements R_RequestDAO {
 		ResultSet rs = ps.executeQuery();
 		R_Request r = null;
 		while(rs.next()) {
-			r = new R_Request(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6), rs.getInt(7));
+			r = new R_Request(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6), rs.getInt(7), rs.getInt(8));
 			reqList.add(r);
 		}
 		return reqList;
@@ -108,12 +109,13 @@ public class R_RequestDAOImpl implements R_RequestDAO {
 	}
 	
 	@Override
-	public boolean updateR_Request(String status, int requestId) throws SQLException {
+	public boolean updateR_Request(String status, int approvedBy, int requestId) throws SQLException {
 		Connection conn = cf.getConnection("database.properties");
-		String sql = "UPDATE R_REQUEST SET STATUS = (?) WHERE REQUEST_ID = (?)";
+		String sql = "UPDATE R_REQUEST SET STATUS = (?), APPROVED_BY = (?) WHERE REQUEST_ID = (?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1, status);
-		ps.setInt(2, requestId);
+		ps.setInt(2, approvedBy);
+		ps.setInt(3, requestId);
 		ps.executeUpdate();
 		return true;
 	}

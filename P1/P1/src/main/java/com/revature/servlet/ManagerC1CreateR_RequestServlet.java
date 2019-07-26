@@ -39,12 +39,13 @@ public class ManagerC1CreateR_RequestServlet extends HttpServlet {
 				String date = req.getParameter("date");
 				String description = req.getParameter("description");
 				double cost = Double.parseDouble(req.getParameter("cost"));
-				String status = req.getParameter("status");
-				int managerClass = Integer.parseInt(req.getParameter("managerclass"));
+				String status = "Pending";
+				int approvedBy = 0;
+				int managerClass = Integer.parseInt(session.getAttribute("managerclass").toString());
 				
 				boolean test = false;
 				try {
-					test = rrd.createR_Request(empId, date, description, cost, status, managerClass);
+					test = rrd.createR_Request(empId, date, description, cost, status, approvedBy, managerClass);
 					resp.sendRedirect("ManagerC1.html");
 				} catch(SQLException e) {
 					e.printStackTrace();

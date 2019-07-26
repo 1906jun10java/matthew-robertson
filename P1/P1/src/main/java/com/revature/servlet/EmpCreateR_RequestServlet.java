@@ -31,7 +31,7 @@ public class EmpCreateR_RequestServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		HttpSession session = req.getSession();
+		HttpSession session = req.getSession(false);
 		
 		if(session != null) {
 				
@@ -39,13 +39,14 @@ public class EmpCreateR_RequestServlet extends HttpServlet {
 				String date = req.getParameter("date");
 				String description = req.getParameter("description");
 				double cost = Double.parseDouble(req.getParameter("cost"));
-				String status = req.getParameter("status");
-				int managerClass = Integer.parseInt(req.getParameter("managerclass"));
+				String status = "Pending";
+				int approvedBy = 0;
+				int managerClass = Integer.parseInt(session.getAttribute("managerclass").toString());
 				
 				boolean test = false;
 				try {
-					test = rrd.createR_Request(empId, date, description, cost, status, managerClass);
-					resp.sendRedirect("profile");
+					test = rrd.createR_Request(empId, date, description, cost, status, approvedBy, managerClass);
+					resp.sendRedirect("Profile.html");
 				} catch(SQLException e) {
 					e.printStackTrace();
 				} 

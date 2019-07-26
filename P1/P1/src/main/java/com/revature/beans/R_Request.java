@@ -8,10 +8,24 @@ public class R_Request {
 	private String rDescription;
 	private double rCost;
 	private String status; 
+	private int approvedBy;
 	private int managerClass;
 	
 	public R_Request() {
 		super();
+	}
+
+	public R_Request(int requestId, int employeeId, String rDate, String rDescription, double rCost, String status,
+			int approvedBy, int managerClass) {
+		super();
+		this.requestId = requestId;
+		this.employeeId = employeeId;
+		this.rDate = rDate;
+		this.rDescription = rDescription;
+		this.rCost = rCost;
+		this.status = status;
+		this.approvedBy = approvedBy;
+		this.managerClass = managerClass;
 	}
 
 	public R_Request(int requestId, int employeeId, String rDate, String rDescription, double rCost, String status,
@@ -92,10 +106,19 @@ public class R_Request {
 		this.managerClass = managerClass;
 	}
 
+	public int getApprovedBy() {
+		return approvedBy;
+	}
+
+	public void setApprovedBy(int approvedBy) {
+		this.approvedBy = approvedBy;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + approvedBy;
 		result = prime * result + employeeId;
 		result = prime * result + managerClass;
 		long temp;
@@ -117,6 +140,8 @@ public class R_Request {
 		if (getClass() != obj.getClass())
 			return false;
 		R_Request other = (R_Request) obj;
+		if (approvedBy != other.approvedBy)
+			return false;
 		if (employeeId != other.employeeId)
 			return false;
 		if (managerClass != other.managerClass)
@@ -146,8 +171,8 @@ public class R_Request {
 	@Override
 	public String toString() {
 		return "R_Request [requestId=" + requestId + ", employeeId=" + employeeId + ", rDate=" + rDate
-				+ ", rDescription=" + rDescription + ", rCost=" + rCost + ", status=" + status + ", managerClass="
-				+ managerClass + "]";
+				+ ", rDescription=" + rDescription + ", rCost=" + rCost + ", status=" + status + ", approvedBy="
+				+ approvedBy + ", managerClass=" + managerClass + "]";
 	}
 
 }

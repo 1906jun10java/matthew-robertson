@@ -62,6 +62,9 @@ function erTableGen(data) {
 	headerCell.innerHTML = "Cost";
 	
 	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "Approved By";
+	
+	headerCell = row.insertCell(-1);
 	headerCell.innerHTML = "Manager Class";
 
 	// Add th data rows.
@@ -82,6 +85,9 @@ function erTableGen(data) {
 
 		cell = row.insertCell(-1);
 		cell.innerHTML = "$" + data[i].rCost;
+		
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].approvedBy;
 		
 		cell = row.insertCell(-1);
 		cell.innerHTML = data[i].managerClass;
@@ -199,6 +205,9 @@ function rTableGen(data) {
 	headerCell.innerHTML = "Status";
 	
 	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "Approved By";
+	
+	headerCell = row.insertCell(-1);
 	headerCell.innerHTML = "Manager Class";
 
 	// Add th data rows.
@@ -222,6 +231,9 @@ function rTableGen(data) {
 		
 		cell = row.insertCell(-1);
 		cell.innerHTML = data[i].status;
+		
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].approvedBy;
 		
 		cell = row.insertCell(-1);
 		cell.innerHTML = data[i].managerClass;

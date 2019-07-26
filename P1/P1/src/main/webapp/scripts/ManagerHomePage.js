@@ -64,6 +64,9 @@ function erTableGen(data) {
 	headerCell.innerHTML = "Status";
 	
 	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "Approved By";
+	
+	headerCell = row.insertCell(-1);
 	headerCell.innerHTML = "Manager Class";
 
 	// Add th data rows.
@@ -87,6 +90,9 @@ function erTableGen(data) {
 		
 		cell = row.insertCell(-1);
 		cell.innerHTML = data[i].status;
+		
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].approvedBy;
 		
 		cell = row.insertCell(-1);
 		cell.innerHTML = data[i].managerClass;

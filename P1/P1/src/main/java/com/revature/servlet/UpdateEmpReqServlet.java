@@ -33,13 +33,14 @@ public class UpdateEmpReqServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		
 		if(session != null) {
-				
-			int empId = Integer.parseInt(req.getParameter("employeeId").toString());
-				String status = req.getParameter("status");
+			
+			int manId = Integer.parseInt(session.getAttribute("employeeId").toString());
+			int reqId = Integer.parseInt(req.getParameter("requestId"));
+				String status = "Approved";
 				
 				boolean test = false;
 				try {
-					test = rrd.updateR_Request(status, empId);
+					test = rrd.updateR_Request(status, manId, reqId);
 					resp.sendRedirect("ManagerC1.html");
 				} catch(SQLException e) {
 					e.printStackTrace();
