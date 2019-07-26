@@ -47,6 +47,12 @@ function erTableGen(data) {
 	let headerCell = document.createElement("TH");
 
 	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "RequestID";
+	
+	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "EmployeeID";
+	
+	headerCell = row.insertCell(-1);
 	headerCell.innerHTML = "Date";
 
 	headerCell = row.insertCell(-1);
@@ -54,12 +60,21 @@ function erTableGen(data) {
 
 	headerCell = row.insertCell(-1);
 	headerCell.innerHTML = "Cost";
+	
+	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "Manager Class";
 
 	// Add th data rows.
 	for (let i = 0; i < data.length; i++) {
 		row = table.insertRow(-1);
 
 		let cell = row.insertCell(-1);
+		cell.innerHTML = data[i].requestId;
+		
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].employeeId;
+		
+		cell = row.insertCell(-1);
 		cell.innerHTML = data[i].rDate;
 
 		cell = row.insertCell(-1);
@@ -67,6 +82,9 @@ function erTableGen(data) {
 
 		cell = row.insertCell(-1);
 		cell.innerHTML = "$" + data[i].rCost;
+		
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].managerClass;
 
 	}
 
@@ -163,6 +181,12 @@ function rTableGen(data) {
 	let headerCell = document.createElement("TH");
 
 	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "RequestID";
+	
+	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "EmployeeID";
+	
+	headerCell = row.insertCell(-1);
 	headerCell.innerHTML = "Date";
 
 	headerCell = row.insertCell(-1);
@@ -170,12 +194,24 @@ function rTableGen(data) {
 
 	headerCell = row.insertCell(-1);
 	headerCell.innerHTML = "Cost";
+	
+	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "Status";
+	
+	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "Manager Class";
 
 	// Add th data rows.
 	for (let i = 0; i < data.length; i++) {
 		row = table.insertRow(-1);
 
 		let cell = row.insertCell(-1);
+		cell.innerHTML = data[i].requestId;
+		
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].employeeId;
+		
+		cell = row.insertCell(-1);
 		cell.innerHTML = data[i].rDate;
 
 		cell = row.insertCell(-1);
@@ -183,6 +219,12 @@ function rTableGen(data) {
 
 		cell = row.insertCell(-1);
 		cell.innerHTML = "$" + data[i].rCost;
+		
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].status;
+		
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].managerClass;
 
 	}
 
