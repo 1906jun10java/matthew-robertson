@@ -44,6 +44,8 @@ public class LoginServlet extends HttpServlet{
 				resp.sendRedirect("profile");
 			} else if(e.getManagerClass() == 2) {
 				resp.sendRedirect("managerC1");
+			}else if(e.getManagerClass() == 3) {
+				resp.sendRedirect("managerC2");
 			}
 			
 		} else {

@@ -13,12 +13,12 @@ public class Driver {
 		EmployeeDAOImpl edi = new EmployeeDAOImpl();
 		R_RequestDAOImpl rdi = new R_RequestDAOImpl();
 		
-		 try {
+		 /*try {
 			edi.updateEmpInfo(43, "Matt", "Robertson", "lavalamp", "password", "matt@gmail.com");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 		/*try {
 			rdi.updateR_Request("Approved", 43);
@@ -41,12 +41,12 @@ public class Driver {
 			e.printStackTrace();
 		}*/
 		
-		/*try {
-			edi.createEmployee("Ted", "Logan", "Bogus...", "NotWaynesWorld2", "WildStallions!2@gmail.com", 3);
+		try {
+			edi.createEmployee("Jason", "Bourne", "IDontRemember", "password", "YourLookingTired@gmail.com", 2);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 		/*try {
 			rdi.createR_Request(43, "01-14-1991", "Life Expense", 1.00);

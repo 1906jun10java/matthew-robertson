@@ -26,6 +26,9 @@ function populateEmployee(){
 	})
 }
 
+
+
+
 function getEmpReqList() {
 	fetch("http://localhost:8084/P1/managerC1ViewR_Requests").then(function(response){
 		let reqList = response.json();
