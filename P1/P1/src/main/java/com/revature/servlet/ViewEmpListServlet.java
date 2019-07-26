@@ -29,7 +29,7 @@ public class ViewEmpListServlet extends HttpServlet {
 		
 		if(session != null) {
 				try {
-					ArrayList<Employee> reqList = edi.getEmpListByMClass(Integer.parseInt(session.getAttribute("managerclass").toString()));
+					ArrayList<Employee> reqList = edi.readEmpList();
 					resp.getWriter().write((new ObjectMapper()).writeValueAsString(reqList));
 					
 				}catch(Exception e) {
