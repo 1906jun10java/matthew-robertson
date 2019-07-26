@@ -60,7 +60,17 @@
 		 <div id="ManC1EmpR_Requests">
 		 </div>
 	<!--</form>-->
-	
+		<form action="updateEmpReq" method="POST">
+                <fieldset>
+                    <legend>RequestID:</legend>
+                    <p><input name="employeeId" type="number"/></p>
+                </fieldset>
+                <fieldset>
+                    <legend>Status:</legend>
+                    <p><input name="status" type="text"/></p>
+                </fieldset>
+                <input type="submit" value="Approve Request"/>
+		</form>
 	<form action="logout" method="GET">
 		<input type="submit" value="logout"/>
 	</form>

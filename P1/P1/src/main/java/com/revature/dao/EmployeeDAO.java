@@ -16,4 +16,6 @@ public interface EmployeeDAO {
 	public Employee getEmpById(int id) throws SQLException;
 
 	public ArrayList<Employee> getEmpListByMClass(int id) throws SQLException;
+
+	public boolean updateEmpInfo(int employeeId, String firstName, String lastName, String userName, String passWord, String email) throws SQLException;
 }

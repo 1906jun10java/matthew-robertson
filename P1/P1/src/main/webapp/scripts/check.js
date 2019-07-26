@@ -4,7 +4,7 @@ window.onload = function() {
 	populateEmployee();
 	document.getElementById('viewRRequests').addEventListener('click', getRequests);
 	//document.getElementById('viewEmpList').addEventListener('click', getEmpList);
-	document.getElementById('viewManC1EmpR_Requests').addEventListener('click', getEmpReqList)
+	//document.getElementById('viewManC1EmpR_Requests').addEventListener('click', getEmpReqList)
 }
 
 function populateEmployee(){

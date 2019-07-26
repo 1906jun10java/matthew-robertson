@@ -17,7 +17,7 @@ public interface R_RequestDAO {
 	public boolean createR_Request(int employeeId, String rDate, String rDescription, double rCost, String status, int managerClass)
 			throws SQLException;
 	
-	public void updateR_Request();
+	public boolean updateR_Request(String status, int requestId) throws SQLException;
 
 	public boolean deleteR_Request(int id) throws SQLException;
 

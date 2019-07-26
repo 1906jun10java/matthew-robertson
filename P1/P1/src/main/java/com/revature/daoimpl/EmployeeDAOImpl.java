@@ -79,4 +79,19 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		}
 		return empList;
 	}	
+	
+	@Override
+	public boolean updateEmpInfo(int employeeId, String firstName, String lastName, String userName, String passWord, String email) throws SQLException {
+		Connection conn = cf.getConnection("database.properties");
+		String sql = "UPDATE EMPLOYEES SET FIRSTNAME = (?), LASTNAME = (?), USERNAME = (?), PASSWORD = (?), EMAIL = (?) WHERE EMPLOYEES_ID = (?)";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, firstName);
+		ps.setString(2, lastName);
+		ps.setString(3, userName);
+		ps.setString(4, passWord);
+		ps.setString(5, email);
+		ps.setInt(6, employeeId);
+		ps.executeUpdate();
+		return true;
+	}
 }

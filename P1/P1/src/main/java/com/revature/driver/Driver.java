@@ -13,12 +13,26 @@ public class Driver {
 		EmployeeDAOImpl edi = new EmployeeDAOImpl();
 		R_RequestDAOImpl rdi = new R_RequestDAOImpl();
 		
-		try {
-			System.out.println(edi.getEmpListByMClass(2));
+		 try {
+			edi.updateEmpInfo(43, "Matt", "Robertson", "lavalamp", "password", "matt@gmail.com");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		/*try {
+			rdi.updateR_Request("Approved", 43);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}*/
+		
+		/*try {
+			System.out.println(edi.getEmpListByMClass(2));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
 		
 		/*try {
 			rdi.getR_RequestByMClass(2);

@@ -46,6 +46,9 @@ function erTableGen(data) {
 	let headerCell = document.createElement("TH");
 
 	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "RequestID";
+	
+	headerCell = row.insertCell(-1);
 	headerCell.innerHTML = "EmployeeID";
 	
 	headerCell = row.insertCell(-1);
@@ -68,10 +71,13 @@ function erTableGen(data) {
 		row = table.insertRow(-1);
 
 		let cell = row.insertCell(-1);
+		cell.innerHTML = data[i].requestId;
+		
+		cell = row.insertCell(-1);
 		cell.innerHTML = data[i].employeeId;
 		
 		cell = row.insertCell(-1);
-		cell.innerHTML = data[i].rCost;
+		cell.innerHTML = data[i].rDate;
 
 		cell = row.insertCell(-1);
 		cell.innerHTML = data[i].rDescription;

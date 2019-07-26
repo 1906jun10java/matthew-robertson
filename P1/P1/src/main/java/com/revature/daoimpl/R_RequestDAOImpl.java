@@ -108,10 +108,14 @@ public class R_RequestDAOImpl implements R_RequestDAO {
 	}
 	
 	@Override
-	public void updateR_Request() {
-		
+	public boolean updateR_Request(String status, int requestId) throws SQLException {
+		Connection conn = cf.getConnection("database.properties");
+		String sql = "UPDATE R_REQUEST SET STATUS = (?) WHERE REQUEST_ID = (?)";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, status);
+		ps.setInt(2, requestId);
+		ps.executeUpdate();
+		return true;
 	}
-
-		
 	
 }
