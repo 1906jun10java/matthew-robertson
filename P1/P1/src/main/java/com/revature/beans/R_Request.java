@@ -7,27 +7,33 @@ public class R_Request {
 	private String rDate;
 	private String rDescription;
 	private double rCost;
+	private String status; 
+	private int managerClass;
 	
 	public R_Request() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public R_Request(int employeeId, String rDate, String rDescription, double rCost) {
-		super();
-		this.employeeId = employeeId;
-		this.rDate = rDate;
-		this.rDescription = rDescription;
-		this.rCost = rCost;
-	}
-
-	public R_Request(int requestId, int employeeId, String rDate, String rDescription, double rCost) {
+	public R_Request(int requestId, int employeeId, String rDate, String rDescription, double rCost, String status,
+			int managerClass) {
 		super();
 		this.requestId = requestId;
 		this.employeeId = employeeId;
 		this.rDate = rDate;
 		this.rDescription = rDescription;
 		this.rCost = rCost;
+		this.status = status;
+		this.managerClass = managerClass;
+	}
+
+	public R_Request(int employeeId, String rDate, String rDescription, double rCost, String status, int managerClass) {
+		super();
+		this.employeeId = employeeId;
+		this.rDate = rDate;
+		this.rDescription = rDescription;
+		this.rCost = rCost;
+		this.status = status;
+		this.managerClass = managerClass;
 	}
 
 	public int getRequestId() {
@@ -42,7 +48,7 @@ public class R_Request {
 		return employeeId;
 	}
 
-	public void setEmployee_Id(int employeeId) {
+	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
 	}
 
@@ -70,17 +76,35 @@ public class R_Request {
 		this.rCost = rCost;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public int getManagerClass() {
+		return managerClass;
+	}
+
+	public void setManagerClass(int managerClass) {
+		this.managerClass = managerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + employeeId;
+		result = prime * result + managerClass;
 		long temp;
 		temp = Double.doubleToLongBits(rCost);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((rDate == null) ? 0 : rDate.hashCode());
 		result = prime * result + ((rDescription == null) ? 0 : rDescription.hashCode());
 		result = prime * result + requestId;
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		return result;
 	}
 
@@ -94,6 +118,8 @@ public class R_Request {
 			return false;
 		R_Request other = (R_Request) obj;
 		if (employeeId != other.employeeId)
+			return false;
+		if (managerClass != other.managerClass)
 			return false;
 		if (Double.doubleToLongBits(rCost) != Double.doubleToLongBits(other.rCost))
 			return false;
@@ -109,14 +135,19 @@ public class R_Request {
 			return false;
 		if (requestId != other.requestId)
 			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "R_Request [requestId=" + requestId + ", employeeId=" + employeeId + ", rDate=" + rDate
-				+ ", rDescription=" + rDescription + ", rCost=" + rCost + "]\n";
+				+ ", rDescription=" + rDescription + ", rCost=" + rCost + ", status=" + status + ", managerClass="
+				+ managerClass + "]";
 	}
 
-	
 }

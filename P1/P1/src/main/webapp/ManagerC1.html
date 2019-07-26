@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="display">
-		<h1>WELCOME</h1>
+		<h1>WELCOME MANAGER CLASS 1</h1>
 	</div>
 	<div class="display">
 		<br>
@@ -27,7 +27,7 @@
 	
 	<h3>Make Reimbursement Request</h3>
 	<div class="display">
-            <form action="empCreateR_Request" method="POST">
+            <form action="managerC1CreateR_Request" method="POST">
                 <fieldset>
                     <legend>Date:</legend>
                     <p><input name="date"/></p>
@@ -52,10 +52,12 @@
             </form>
         </div>
 	<!-- <form action="viewR_Requests" method="GET">
-	
 		<input type="submit" value="View Requests"/> -->
-		<button id="viewRRequests">View Requests</button>
-		 <div id="R_Requests">
+		<button id="viewEmpList">View Employees</button>
+		 <div id="EmpList">
+		 </div>
+		<button id="viewManC1EmpR_Requests">View Employee Reimbursement Requests</button>
+		 <div id="ManC1EmpR_Requests">
 		 </div>
 	<!--</form>-->
 	
@@ -64,5 +66,5 @@
 	</form>
 </body>
 
-<script src="scripts/check.js"></script>
+<script src="scripts/ManagerHomePage.js"></script>
 </html>

@@ -29,7 +29,8 @@ public class R_RequestServices {
 		}
 	}
 
-	public void createR_Request(int employeeId, String rDate, String rDescription, double rCost) throws SQLException {
+	public boolean createR_Request(int employeeId, String rDate, String rDescription, double rCost) throws SQLException {
+		return true;
 	}
 
 	public void updateR_Request() {

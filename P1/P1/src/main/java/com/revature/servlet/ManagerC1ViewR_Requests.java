@@ -14,8 +14,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.R_Request;
 import com.revature.daoimpl.R_RequestDAOImpl;
 
-@WebServlet("/viewR_Requests")
-public class ViewR_RequestServlet extends HttpServlet {
+@WebServlet("/managerC1ViewR_Requests")
+public class ManagerC1ViewR_Requests extends HttpServlet {
 	
 	
 	ObjectMapper om = new ObjectMapper();
@@ -28,8 +28,8 @@ public class ViewR_RequestServlet extends HttpServlet {
 		
 		if(session != null) {
 				try {
-					int rid = (int) session.getAttribute("employeeId");
-					ArrayList<R_Request> reqList = rri.getR_RequestById(rid);
+					int mid = (int) session.getAttribute("managerclass");
+					ArrayList<R_Request> reqList = rri.getR_RequestByMClass(mid);
 					resp.getWriter().write((new ObjectMapper()).writeValueAsString(reqList));
 				}catch(Exception e) {
 					e.printStackTrace();

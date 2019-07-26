@@ -2,8 +2,7 @@ let emp = {};
 
 window.onload = function() {
 	populateEmployee();
-	document.getElementById('viewRRequests').addEventListener('click', getRequests);
-	//document.getElementById('viewEmpList').addEventListener('click', getEmpList);
+	document.getElementById('viewEmpList').addEventListener('click', getEmpList);
 	document.getElementById('viewManC1EmpR_Requests').addEventListener('click', getEmpReqList)
 }
 
@@ -47,6 +46,9 @@ function erTableGen(data) {
 	let headerCell = document.createElement("TH");
 
 	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "EmployeeID";
+	
+	headerCell = row.insertCell(-1);
 	headerCell.innerHTML = "Date";
 
 	headerCell = row.insertCell(-1);
@@ -54,19 +56,34 @@ function erTableGen(data) {
 
 	headerCell = row.insertCell(-1);
 	headerCell.innerHTML = "Cost";
+	
+	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "Status";
+	
+	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "Manager Class";
 
 	// Add th data rows.
 	for (let i = 0; i < data.length; i++) {
 		row = table.insertRow(-1);
 
 		let cell = row.insertCell(-1);
-		cell.innerHTML = data[i].rDate;
+		cell.innerHTML = data[i].employeeId;
+		
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].rCost;
 
 		cell = row.insertCell(-1);
 		cell.innerHTML = data[i].rDescription;
 
 		cell = row.insertCell(-1);
 		cell.innerHTML = "$" + data[i].rCost;
+		
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].status;
+		
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].managerClass;
 
 	}
 
@@ -111,7 +128,7 @@ function eTableGen(data) {
 	headerCell.innerHTML = "Email";
 	
 	headerCell = row.insertCell(-1);
-	headerCell.innerHTML = "Mananger Class";
+	headerCell.innerHTML = "Manager Class";
 
 	// Add th data rows.
 	for (let i = 0; i < data.length; i++) {
@@ -139,55 +156,6 @@ function eTableGen(data) {
 
 	// replace the empty div with a table
 	let newTable = document.getElementById("EmpList");
-	newTable.innerHTML = "";
-	newTable.appendChild(table);
-}
-
-function getRequests() {
-	fetch("http://localhost:8084/P1/viewR_Requests").then(function(response) {
-		let reqList = response.json();
-		return reqList;
-	}).then(function(reqList) {
-		console.log(reqList);
-		rTableGen(reqList);
-	})
-}
-
-function rTableGen(data) {
-	// Create a HTML Table element.
-	let table = document.createElement("TABLE");
-	table.border = "1";
-
-	// Add the header row.
-	let row = table.insertRow(-1);
-	let headerCell = document.createElement("TH");
-
-	headerCell = row.insertCell(-1);
-	headerCell.innerHTML = "Date";
-
-	headerCell = row.insertCell(-1);
-	headerCell.innerHTML = "Description";
-
-	headerCell = row.insertCell(-1);
-	headerCell.innerHTML = "Cost";
-
-	// Add th data rows.
-	for (let i = 0; i < data.length; i++) {
-		row = table.insertRow(-1);
-
-		let cell = row.insertCell(-1);
-		cell.innerHTML = data[i].rDate;
-
-		cell = row.insertCell(-1);
-		cell.innerHTML = data[i].rDescription;
-
-		cell = row.insertCell(-1);
-		cell.innerHTML = "$" + data[i].rCost;
-
-	}
-
-	// replace the empty div with a table
-	let newTable = document.getElementById("R_Requests");
 	newTable.innerHTML = "";
 	newTable.appendChild(table);
 }

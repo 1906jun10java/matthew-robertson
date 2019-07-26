@@ -45,6 +45,22 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
+	public ArrayList<Employee> getEmpListByMClass(int id) throws SQLException {
+		ArrayList<Employee> empList = new ArrayList<>();
+		Connection conn = cf.getConnection("database.properties");
+		String sql = "SELECT * FROM EMPLOYEES WHERE MANAGER_CLASS_ID < ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, id);
+		ResultSet rs = ps.executeQuery();
+		Employee e = null;
+		while(rs.next()) {
+			e = new Employee(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));
+			empList.add(e);
+		}
+		return empList;
+	}
+	
+	@Override
 	public ArrayList<Employee> readEmpList() throws SQLException {
 		
 		ArrayList<Employee> empList = new ArrayList<Employee>();

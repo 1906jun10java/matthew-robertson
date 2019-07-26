@@ -14,9 +14,13 @@ public interface R_RequestDAO {
 	
 	public ArrayList<R_Request> getR_RequestById(int id) throws SQLException;
 	
-	public abstract void createR_Request(int employeeId, String rDate, String rDescription, double rCost)
+	public boolean createR_Request(int employeeId, String rDate, String rDescription, double rCost, String status, int managerClass)
 			throws SQLException;
 	
 	public void updateR_Request();
+
+	public boolean deleteR_Request(int id) throws SQLException;
+
+	public ArrayList<R_Request> getR_RequestByMClass(int id) throws SQLException;
 
 }

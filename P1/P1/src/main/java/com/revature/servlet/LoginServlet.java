@@ -38,7 +38,14 @@ public class LoginServlet extends HttpServlet{
 			session.setAttribute("email", e.getEmail());
 			session.setAttribute("managerclass", e.getManagerClass());
 			session.setAttribute("problem", null);
-			resp.sendRedirect("profile");
+			//resp.sendRedirect("profile");
+			
+			if(e.getManagerClass() == 1) {
+				resp.sendRedirect("profile");
+			} else if(e.getManagerClass() == 2) {
+				resp.sendRedirect("managerC1");
+			}
+			
 		} else {
 			session.setAttribute("problem", "invalid credentials");
 			
